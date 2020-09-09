@@ -99,7 +99,7 @@ void FindMine(char mine[ROWS][COLS],char show[ROWS][COLS],int row,int col)
 		}
 
 	}
-	if(win == ROW*COL-10)
+	if(win == ROW*COL-EASY_COUNT)
 	{
 		printf("¹§Ï²Äã£¬ÅÅÀ×³É¹¦£¡\n");
 		Display(mine,row,col);
@@ -116,7 +116,6 @@ void game()
 	InitBoard(show,ROWS,COLS,'*');
 	Display(show,ROW,COL);
 	SetMine(mine,ROW,COL);
-	Display(mine,ROW,COL);
 	FindMine(mine,show,ROW,COL);
 }
 int main()
