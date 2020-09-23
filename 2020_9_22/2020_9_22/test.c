@@ -6,32 +6,29 @@
 //来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分
 
 //所有偶数位于数组的后半部分。
-
+//方法二
 void odd_even(int arr[],int sz)
 {
 	int temp=0;
-	int i = 0;
-	int j = sz - 1;
-	while (i < j)
+	int left = 0;
+	int right = sz - 1;
+	while (left < right)
 	{
-		if (arr[i] % 2 == 0)
+		while((left<right)&&arr[left]%2==1)
 		{
-			arr[i] = arr[i];
+			left++;
 		}
-		else
-			i++;
-		if (arr[j] % 2 == 1)
+		while((left<right)&&arr[right]%2==0)
 		{
-			arr[j] = arr[j];
+			right--;
 		}
-		else
-			j--;
-		if(i<j)
+		if(left<right)
 		{
-			temp=arr[i];
-			arr[i]=arr[j];
-			arr[j]=temp;
+			temp=arr[left];
+			arr[left]=arr[right];
+			arr[right]=temp;
 		}
+
 	}
 }
 int main()
@@ -47,6 +44,52 @@ int main()
 	}
 	return 0;
 }
+
+
+
+
+//方法一
+
+//void odd_even(int arr[],int sz)
+//{
+//	int temp=0;
+//	int i = 0;
+//	int j = sz - 1;
+//	while (i < j)
+//	{
+//		if (arr[i] % 2 == 0)
+//		{
+//			arr[i] = arr[i];
+//		}
+//		else
+//			i++;
+//		if (arr[j] % 2 == 1)
+//		{
+//			arr[j] = arr[j];
+//		}
+//		else
+//			j--;
+//		if(i<j)
+//		{
+//			temp=arr[i];
+//			arr[i]=arr[j];
+//			arr[j]=temp;
+//		}
+//	}
+//}
+//int main()
+//{
+//	int sz=0;
+//	int i=0;
+//	int arr[10]={1,2,3,4,5,6,7,8,9,10};
+//	sz=sizeof(arr)/sizeof(arr[0]);
+//	odd_even(arr,sz);
+//	for (; i < sz;i++)
+//	{
+//		printf("%d  ",arr[i]);
+//	}
+//	return 0;
+//}
 
 
 
